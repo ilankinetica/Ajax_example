@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+  <div id="demo">
+    <p>Dejemos a AJAX cambiar este texto...</p>
+  </div>
+  <button type="button" onclick="loadDoc()">Cambiar texto</button>
+  <script>
+  function loadDoc() 
+  {
+    var xhttp;
+    xhttp = new XMLHttpRequest(); //el objeto de ajax
+    xhttp.onreadystatechange = function()
+    {
+      if (xhttp.readyState == 4 && xhttp.status == 200) 
+      {
+        document.getElementById("demo").innerHTML = xhttp.responseText; //el response
+      }
+    };
+    xhttp.open("GET", "ajax_info.txt", true); //enviamos el request al server
+    xhttp.send();
+  }
+  </script>
+</body>
+</html>
